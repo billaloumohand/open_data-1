@@ -7,15 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Index
+ * Servlet implementation class Create
  */
-public class Index extends HttpServlet {
+public class Create extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Index() {
+    public Create() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -24,7 +24,8 @@ public class Index extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("test", "index");
+		// TODO Auto-generated method stub
+		request.setAttribute("test", "create");
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/createCard.jsp" ).forward( request, response );
 	}
 
@@ -33,7 +34,6 @@ public class Index extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-	//test
 		doGet(request, response);
 	}
 
