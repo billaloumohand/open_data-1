@@ -24,8 +24,12 @@ public class Index extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("test", "index");
-		this.getServletContext().getRequestDispatcher( "/WEB-INF/createCard.jsp" ).forward( request, response );
+		
+		String user = request.getParameter("user") ;
+		if (user==null){user="";}
+		
+		request.setAttribute("user",user );
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/index.jsp" ).forward( request, response );
 	}
 
 	/**
