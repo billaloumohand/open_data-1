@@ -5,7 +5,7 @@
             <% 
             String attribut = (String) request.getAttribute("test");
             out.println( attribut );
-            out.println( "test_billal");
+            out.println( "Ceci est un test ");
             %>
 </body>
 </html>
