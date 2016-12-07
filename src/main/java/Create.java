@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ezvcard.*;
+import ezvcard.property.StructuredName; 
+
 
 /**
  * Servlet implementation class Create
@@ -26,7 +29,18 @@ public class Create extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setAttribute("test", "create");
+		
+		String mail = request.getParameter("mail") ;
+		if (mail==null){mail="";}
+		VCard vcard = new VCard();
+		StructuredName n = new StructuredName();
+		n.setParameter("EMAIL", "alexis.anzieu@gmail.com");
+
+		vcard.setStructuredName(n);
+	
+		String text = Ezvcard.write(vcard).version(VCardVersion.V3_0).go();
+		
+		request.setAttribute("test", text);
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/createCard.jsp" ).forward( request, response );
 	}
 
